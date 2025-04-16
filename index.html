@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>لینک‌ساز چت واتساپ</title>
+  <style>
+    body {
+      font-family: Tahoma;
+      text-align: center;
+      padding: 50px;
+      background-color: #e9f5ff;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>ساخت لینک واتساپ بدون ذخیره شماره</h2>
+  <p>شماره رو وارد کن (مثلاً: 9121234567)</p>
+  <input type="text" id="phone" placeholder="بدون صفر...">
+  <br>
+  <button onclick="makeLink()">بساز لینک</button>
+  <a id="whatsappLink" href="#" target="_blank"></a>
+
+  <script>
+    function makeLink() {
+      const number = document.getElementById("phone").value.trim();
+      if (number.match(/^\d+$/)) {
+        const fullNumber = "98" + number;
+        const link = `https://wa.me/${fullNumber}`;
+        const linkTag = document.getElementById("whatsappLink");
+        linkTag.href = link;
+        linkTag.innerText = "بزن برو چت کن!";
+      } else {
+        alert("لطفاً فقط عدد وارد کن.");
+      }
+    }
+  </script>
+</body>
+</html>
